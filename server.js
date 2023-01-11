@@ -11,9 +11,16 @@ const env = require("dotenv").config()
 const app = express()
 
 /* ***********************
- * Routes ALSO WHAT "MULTI-LINE ROUTES COMMENT" am I copying??
+ * Routes 
  *************************/
 app.use(require("./routes/static"))
+app.get("/", function(req, res){
+  res.render("index", {title: "Home"})
+})
+
+/********
+ *  View Engine and Templates
+ ********/
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
