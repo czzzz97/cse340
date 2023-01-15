@@ -6,6 +6,17 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url("../images/site/checkerboard.jpg");
+  background-size: 200px;
+  background-repeat: repeat;
+}
+
+#wrapper {
+  background-color: white;
+}
+
 .homelink, .accountLink > a {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
@@ -13,43 +24,47 @@
   color:black
 }
 
-#wrapper {
-  width: 100%;
+.homelink {
+  font-size:x-large;
+  margin: 10% 70% 0% 0%;
 }
 
-nav {
-  width: 100%;
+.accountLink {
+  margin: 0% 0% 10% 80%;
 }
 
-ul {
+nav ul {
   list-style-type: none;
-  width: 100%;
 }
 
-li {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+nav li {
   text-decoration: none;
   color:aliceblue;
   background-color: indigo;
   text-align: center;
 }
 
-li:hover {
+nav li:hover {
   background-color: darkorchid;
 }
 
 /****** PHONE/SMALL SCREEN */
 @media screen and (max-width: 600px){
-  
+  nav li {
+    border: 1px;
+    border-style: solid;
+    border-color: blueviolet;
+    padding: 1% 0%;
+  }
 }
 
 /****** NOT PHONE/SMALL */
 @media screen and (min-width: 600px){
-  li {
+  nav li {
     display: inline-block;
     margin: -1%;
     border: 0%;
     padding: 0% 5%;
-    width: 20%
+    width: 20%;
   }
 }
