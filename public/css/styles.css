@@ -8,6 +8,7 @@
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
 }
 
 #wrapper {
@@ -31,7 +32,7 @@ body {
   margin: 0% 0% 10% 80%;
 }
 
-nav ul {
+nav ul, #delorean-ad ul {
   list-style-type: none;
 }
 
@@ -44,6 +45,30 @@ nav li {
 
 nav li:hover {
   background-color: darkorchid;
+}
+
+#delorean-ad{
+  background-color: rgba(126, 12, 119, .4);
+  float:left;
+  margin: 0% 0% -30%;
+  padding: 1% 5%;
+  opacity: .95;
+  border-radius: 5%;
+  font-weight: bold;
+}
+
+#delorean-ad button{
+  background-color:darkorange;
+  margin: 3% 20%;
+  padding:1em;
+  border: 0px;
+  width: 60%;
+  border-radius: 15%;
+  font-weight: bolder;
+}
+
+#delorean-ad button:hover{
+  background-color: goldenrod;
 }
 
 /****** PHONE/SMALL SCREEN */
@@ -60,20 +85,12 @@ nav li:hover {
 
 /****** NOT PHONE/SMALL */
 @media screen and (min-width: 600px){
-  /* AWKWARD "bigger than phone, smaller than comfortable for pc" AREA */
-  @media screen and (max-width: 700px){
-    #delorean {
-      width: 80%;
-    }
-  }
-  
+ 
   body {
     background-image: url("../images/site/checkerboard.jpg");
     background-size: 200px;
     background-repeat: repeat;
   }
-  
-  
 
   nav li {
     display: inline-block;
@@ -84,5 +101,20 @@ nav li:hover {
   }
   #wrapper {
     width: 80%;
+  }
+
+  #delorean {
+    width: 450px;
+    margin-top: 20%;
+    position: relative;
+    z-index: 0;
+  }
+
+  #delorean-ad{
+    padding: 1% 5%;
+    border-radius: 5%;
+    width: 300px;
+    height: 200px;
+    z-index:100
   }
 }
