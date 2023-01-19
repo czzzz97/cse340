@@ -8,13 +8,11 @@
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url("../images/site/checkerboard.jpg");
-  background-size: 200px;
-  background-repeat: repeat;
 }
 
 #wrapper {
   background-color: white;
+  margin: auto;
 }
 
 .homelink, .accountLink > a {
@@ -56,15 +54,35 @@ nav li:hover {
     border-color: blueviolet;
     padding: 1% 0%;
   }
+
+
 }
 
 /****** NOT PHONE/SMALL */
 @media screen and (min-width: 600px){
+  /* AWKWARD "bigger than phone, smaller than comfortable for pc" AREA */
+  @media screen and (max-width: 700px){
+    #delorean {
+      width: 80%;
+    }
+  }
+  
+  body {
+    background-image: url("../images/site/checkerboard.jpg");
+    background-size: 200px;
+    background-repeat: repeat;
+  }
+  
+  
+
   nav li {
     display: inline-block;
     margin: -1%;
     border: 0%;
     padding: 0% 5%;
     width: 20%;
+  }
+  #wrapper {
+    width: 80%;
   }
 }
