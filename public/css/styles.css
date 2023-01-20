@@ -50,7 +50,7 @@ nav li:hover {
 #delorean-ad{
   background-color: rgba(126, 12, 119, .4);
   float:left;
-  margin: 0% 0% -30%;
+  margin: 0% 0% -20% 10%;
   padding: 1% 5%;
   opacity: .95;
   border-radius: 5%;
@@ -72,7 +72,7 @@ nav li:hover {
 }
 
 /****** PHONE/SMALL SCREEN */
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
   nav li {
     border: 1px;
     border-style: solid;
@@ -84,7 +84,7 @@ nav li:hover {
 }
 
 /****** NOT PHONE/SMALL */
-@media screen and (min-width: 600px){
+@media screen and (min-width: 800px){
  
   body {
     background-image: url("../images/site/checkerboard.jpg");
@@ -105,16 +105,16 @@ nav li:hover {
 
   #delorean {
     width: 450px;
-    margin-top: 20%;
     position: relative;
+    margin: 0% 30% 0% 20%;
     z-index: 0;
   }
 
   #delorean-ad{
+    position: relative;
     padding: 1% 5%;
     border-radius: 5%;
-    width: 300px;
-    height: 200px;
+    margin: 0% 0% -10% 20%;
     z-index:100
   }
 }
