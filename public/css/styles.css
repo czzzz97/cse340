@@ -36,8 +36,11 @@ nav ul, #delorean-ad ul {
   list-style-type: none;
 }
 
-.upgrades li{
+.reviews li{
   list-style-position: inside;
+  text-align: left;
+  margin: auto;
+  padding: 1%;
 }
 
 nav li {
@@ -121,7 +124,7 @@ nav li:hover {
     padding: 0% 5%;
     width: 20%;
   }
-  
+
   #wrapper {
     width: 80%;
   }
