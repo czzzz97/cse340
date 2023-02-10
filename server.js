@@ -21,7 +21,7 @@ app.set("layout", "./layouts/layout") // not at views root
 /* ***********************
  * Routes 
  *************************/
-//app.use(require("./routes/static"))
+app.use(require("./routes/static"))
 app.get("/", baseController.buildHome)
 
 
