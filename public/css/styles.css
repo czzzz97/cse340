@@ -142,7 +142,7 @@ nav li:hover {
   nav li {
     display: inline-block;
     margin: -1%;
-    border: 0%;
+    border: 0px;
     padding: 0% 5%;
   }
 
