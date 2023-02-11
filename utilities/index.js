@@ -28,7 +28,7 @@ Util.getNav = async function (req, res, next) {
 
 Util.buildDetails = function (data) {
     let list = ""
-    list += '<div class="details"><div><h1>' + data.inv_year + ' ' + data.inv_make + ' ' + data.inv_model + '</h1>'
+    list += '<div class="details"><div><h2>' + data.inv_year + ' ' + data.inv_make + ' ' + data.inv_model + '</h1>'
     list += '<img src="' + data.inv_image + '" alt="Full-size image of car"/></div>'
     list += '<div><h2>Vehicle Details</h2><p>' + data.inv_description + '</p>'
     list += '<p>Price: $' + new Intl.NumberFormat('en-US').format(data.inv_price) + '</p>'

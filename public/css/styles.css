@@ -176,6 +176,7 @@ nav li:hover {
   }
 
   .details {
-    display: inline-block;
+    display: grid;
+    grid: auto / auto auto;
   }
 }
