@@ -9,7 +9,7 @@ Util.buildNav = function (data) {
         list +=
         '<a href="/inv/type/' +
         row.classification_id +
-        ' "title="See our inventory of ' +
+        '" title="See our inventory of ' +
         row.classification_name +
         ' vehicles">' +
         row.classification_name +
