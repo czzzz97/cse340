@@ -29,7 +29,6 @@ invCont.buildByInvId = async function (req, res, next) {
         nav,
         details,
         message: null,
-        data,
     })
 }
 

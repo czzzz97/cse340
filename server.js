@@ -24,7 +24,6 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(require("./routes/static"))
 app.get("/", baseController.buildHome)
 app.use("/inv", require("./routes/inventory-route"))
-app.use("/inv", require("./routes/inv-details-route"))
 
 /* ***********************
  * Local Server Information
