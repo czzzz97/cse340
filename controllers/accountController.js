@@ -32,7 +32,7 @@ async function registerClient(req, res) {
     )
     console.log(regResult)
     if (regResult) {
-      res.status(201).render("clients/login.ejs", {
+      res.status(201).render("./clients/login-view.ejs", {
         title: "Login",
         nav,
         message: `Congratulations, you\'re registered ${client_firstname}. Please log in.`,
@@ -40,7 +40,7 @@ async function registerClient(req, res) {
       })
     } else {
       const message = "Sorry, the registration failed."
-      res.status(501).render("clients/register.ejs", {
+      res.status(501).render("./clients/registration-view.ejs", {
         title: "Registration",
         nav,
         message,

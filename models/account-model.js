@@ -19,3 +19,5 @@ async function registerClient (
         return error.message
     }
 }
+
+module.exports = { registerClient }
