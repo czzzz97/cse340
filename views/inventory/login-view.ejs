@@ -2,12 +2,12 @@
 <% if (message) { %>
     <p><%= message %></p>
 <% } %>
-<form action="">
+<form name="login" action="">
     <label for="username">Username/Email</label>
     <input id="username" name="username" type="text">
     <label for="password">Password</label>
     <input id="password" name="password" type="password">
-    <input type="submit">
+    <input type="submit" form="login" value="Log in">
 </form>
 
-<p>No account? <a href="/">SIGN UP</a></p>
+<p>No account? <a href="/client/register">SIGN UP</a></p>

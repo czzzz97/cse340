@@ -1,12 +1,21 @@
-util = require("../utilities/index")
+utilities = require("../utilities/index")
 
 async function buildLogin(req, res, next) {
     let nav = await utilities.getNav()
-    res.render("clients/login", {
+    res.render("./inventory/login-view", {
         title: "Login",
         nav,
         message: null,
     })
 }
 
-module.exports = { buildLogin }
+async function buildRegister(req, res, next) {
+    let nav = await utilities.getNav()
+    res.render("./inventory/registration-view", {
+        title: "Register",
+        nav,
+        message: null,
+    })
+}
+
+module.exports = { buildLogin, buildRegister }

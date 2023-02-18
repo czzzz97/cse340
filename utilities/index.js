@@ -35,7 +35,7 @@ Util.buildDetails = function (data) {
     list += '<p>Color:' + data.inv_color + '</p>'
     list += '<p>Miles: ' + new Intl.NumberFormat('en-US').format(data.inv_miles) + '</p></div></div>'
     return list
-}//<span>$<%=  new Intl.NumberFormat('en-US').format(vehicle.inv_price) %></span>
+}
 
 Util.getDetails = function (data) {
     details = Util.buildDetails(data)
