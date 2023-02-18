@@ -41,4 +41,40 @@ invCont.buildManagement = async function (req, res, next) {
     })
 }
 
+invCont.buildAddClassification = async function (req, res, next) {
+    let nav = await utilities.getNav()
+    res.render("./inventory/add-classification.ejs", {
+        title: "Add Classification",
+        nav,
+        message: null,
+    })
+} 
+
+invCont.addClassification = async function (req, res) {
+    const { classification_name } =
+      req.body
+  
+    const addResult = await invModel.addClassification(
+        classification_name
+    )
+    let nav = await utilities.getNav() //moved nav here so hopefully it loads with the new class
+    console.log(addResult)
+    if (addResult) {
+      res.status(201).render("./inventory/management-view.ejs", {
+        title: "Inventory Management",
+        nav,
+        message: `${classification_name} added successfully.`,
+        errors: null,
+      })
+    } else {
+      const message = "Classification failed to be added."
+      res.status(501).render("./inventory/add-classification.ejs", {
+        title: "Add Classification",
+        nav,
+        message,
+        errors: null,
+      })
+    }
+  }
+
 module.exports = invCont;
