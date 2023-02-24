@@ -7,7 +7,12 @@ invCont.buildByClassification = async function (req, res, next) {
     const classificationId = req.params.classificationId
     let data = await invModel.getVehiclesByClassificationId(classificationId)
     let nav = await utilities.getNav()
-    const className = data[0].classification_name
+    let className = 'No'
+    try {
+      className = data[0].classification_name
+    } catch (error) {
+      message = error
+    }
     res.render("./inventory/classification-view", {
         title: className + " vehicles",
         nav,
@@ -67,7 +72,7 @@ invCont.addClassification = async function (req, res) {
         errors: null,
       })
     } else {
-      const message = "Classification failed to be added."
+      const message = "Classification could not be added."
       res.status(501).render("./inventory/add-classification.ejs", {
         title: "Add Classification",
         nav,
@@ -76,5 +81,50 @@ invCont.addClassification = async function (req, res) {
       })
     }
   }
+
+  invCont.buildAddVehicle = async function (req, res, next) {
+    let nav = await utilities.getNav()
+    res.render("./inventory/add-vehicle.ejs", {
+        title: "Add Vehicle",
+        nav,
+        message: null,
+    })
+} 
+
+invCont.addVehicle = async function (req, res) {
+  let nav = await utilities.getNav()
+  //ADD CLASSIFICATION
+  const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color } =
+    req.body
+
+  const regResult = await invModel.addVehicle(
+    inv_make, 
+    inv_model,
+    inv_year,
+    inv_description, 
+    inv_image, 
+    inv_thumbnail, 
+    inv_price, 
+    inv_miles, 
+    inv_color
+  )
+  console.log(regResult)
+  if (regResult) {
+    res.status(201).render("./inv/management-view.ejs", {
+      title: "Inventory Management",
+      nav,
+      message: `${inv_make} ${inv_model} added successfully.`,
+      errors: null,
+    })
+  } else {
+    const message = "Vehicle could not be added."
+    res.status(501).render("./inv/add-vehicle.ejs", {
+      title: "Add Vehicle",
+      nav,
+      message,
+      errors: null,
+    })
+  }
+}
 
 module.exports = invCont;

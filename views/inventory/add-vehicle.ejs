@@ -1,0 +1,26 @@
+<h1><%= title  %></h1>
+<% if (message) { %>
+    <p><%= message %></p>
+<% } %>
+<!-- for in: claassification_id -->
+<form action="/inv/add-vehicle" method="post">
+    <label for="inv_make">Make</label>
+    <input id="inv_make" name="inv_make" type="text">
+    <label for="inv_model">Model</label>
+    <input id="inv_model" name="inv_model" type="text">
+    <label for="inv_year">Year</label>
+    <input id="inv_year" name="inv_year" type="text">
+    <label for="inv_description">Description</label>
+    <input id="inv_description" name="inv_description" type="text">
+    <label for="inv_image">Image</label>
+    <input id="inv_image" name="inv_image" value="/images/vehicles/no-image.png" type="text">
+    <label for="inv_thumbnail">Thumbnail</label>
+    <input id="inv_thumbnail" name="inv_thumbnail" value="/images/vehicles/no-image-tn.png" type="text">
+    <label for="inv_price">Price</label>
+    <input id="inv_price" name="inv_price" type="text">
+    <label for="inv_miles">Miles</label>
+    <input id="inv_miles" name="inv_miles" type="text">
+    <label for="inv_color">Color</label>
+    <input id="inv_color" name="inv_color" type="text">
+    <input type="submit">
+</form>
