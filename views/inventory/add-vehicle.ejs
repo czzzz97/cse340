@@ -2,7 +2,7 @@
 <% if (message) { %>
     <p><%= message %></p>
 <% } %>
-<!-- for in: claassification_id -->
+<!-- for in: classification_id -->
 <form action="/inv/add-vehicle" method="post">
     <label for="inv_make">Make</label>
     <input id="inv_make" name="inv_make" type="text">
@@ -22,5 +22,11 @@
     <input id="inv_miles" name="inv_miles" type="text">
     <label for="inv_color">Color</label>
     <input id="inv_color" name="inv_color" type="text">
+    <label for="classification_id">Classification</label>
+    <select id="classification_id" name="classification_id">
+    <% data.rows.forEach((row) => { %>
+        <option value="<%= row.classification_id %>"><%= row.classification_name %></option>
+    <% }) %>
+    </select>
     <input type="submit">
 </form>

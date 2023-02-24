@@ -84,17 +84,18 @@ invCont.addClassification = async function (req, res) {
 
   invCont.buildAddVehicle = async function (req, res, next) {
     let nav = await utilities.getNav()
+    let data = await invModel.getClassifications()
     res.render("./inventory/add-vehicle.ejs", {
         title: "Add Vehicle",
         nav,
+        data,
         message: null,
     })
 } 
 
 invCont.addVehicle = async function (req, res) {
   let nav = await utilities.getNav()
-  //ADD CLASSIFICATION
-  const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color } =
+  const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id } =
     req.body
 
   const regResult = await invModel.addVehicle(
@@ -106,11 +107,12 @@ invCont.addVehicle = async function (req, res) {
     inv_thumbnail, 
     inv_price, 
     inv_miles, 
-    inv_color
+    inv_color,
+    classification_id
   )
   console.log(regResult)
   if (regResult) {
-    res.status(201).render("./inv/management-view.ejs", {
+    res.status(201).render("./inventory/management-view.ejs", {
       title: "Inventory Management",
       nav,
       message: `${inv_make} ${inv_model} added successfully.`,
