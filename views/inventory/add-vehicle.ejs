@@ -5,28 +5,28 @@
 <!-- for in: classification_id -->
 <form action="/inv/add-vehicle" method="post">
     <label for="inv_make">Make</label>
-    <input id="inv_make" name="inv_make" type="text">
+    <input id="inv_make" name="inv_make" type="text"><br>
     <label for="inv_model">Model</label>
-    <input id="inv_model" name="inv_model" type="text">
+    <input id="inv_model" name="inv_model" type="text"><br>
     <label for="inv_year">Year</label>
-    <input id="inv_year" name="inv_year" type="text">
+    <input id="inv_year" name="inv_year" type="text"><br>
     <label for="inv_description">Description</label>
-    <input id="inv_description" name="inv_description" type="text">
+    <textarea id="inv_description" name="inv_description"></textarea><br>
     <label for="inv_image">Image</label>
-    <input id="inv_image" name="inv_image" value="/images/vehicles/no-image.png" type="text">
+    <input id="inv_image" name="inv_image" value="/images/vehicles/no-image.png" type="text"><br>
     <label for="inv_thumbnail">Thumbnail</label>
-    <input id="inv_thumbnail" name="inv_thumbnail" value="/images/vehicles/no-image-tn.png" type="text">
+    <input id="inv_thumbnail" name="inv_thumbnail" value="/images/vehicles/no-image-tn.png" type="text"><br>
     <label for="inv_price">Price</label>
-    <input id="inv_price" name="inv_price" type="text">
+    <input id="inv_price" name="inv_price" type="text"><br>
     <label for="inv_miles">Miles</label>
-    <input id="inv_miles" name="inv_miles" type="text">
+    <input id="inv_miles" name="inv_miles" type="text"><br>
     <label for="inv_color">Color</label>
-    <input id="inv_color" name="inv_color" type="text">
+    <input id="inv_color" name="inv_color" type="text"><br>
     <label for="classification_id">Classification</label>
     <select id="classification_id" name="classification_id">
     <% data.rows.forEach((row) => { %>
         <option value="<%= row.classification_id %>"><%= row.classification_name %></option>
     <% }) %>
-    </select>
+    </select><br>
     <input type="submit">
 </form>
