@@ -14,7 +14,7 @@ router.post(
 router.get("/register", accountController.buildRegister);
 router.post(
     "/register",
-    regValidate.registationRules(),
+    regValidate.registrationRules(),
     regValidate.checkRegData,
     accountController.registerClient
   )

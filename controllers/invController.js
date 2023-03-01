@@ -52,6 +52,7 @@ invCont.buildAddClassification = async function (req, res, next) {
         title: "Add Classification",
         nav,
         message: null,
+        errors: null,
     })
 } 
 
@@ -90,11 +91,13 @@ invCont.addClassification = async function (req, res) {
         nav,
         data,
         message: null,
+        errors: null,
     })
 } 
 
 invCont.addVehicle = async function (req, res) {
   let nav = await utilities.getNav()
+  let data = await invModel.getClassifications()
   const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id } =
     req.body
 
@@ -123,6 +126,7 @@ invCont.addVehicle = async function (req, res) {
     res.status(501).render("./inv/add-vehicle.ejs", {
       title: "Add Vehicle",
       nav,
+      data,
       message,
       errors: null,
     })

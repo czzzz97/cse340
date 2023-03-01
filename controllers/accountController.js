@@ -9,6 +9,7 @@ async function buildLogin(req, res, next) {
         title: "Login",
         nav,
         message: null,
+        errors: null,
     })
 }
 

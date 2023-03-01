@@ -3,7 +3,7 @@ const utilities = require("./")
 const { body, validationResult } = require("express-validator")
 const validate = {}
 
-validate.registationRules = () => {
+validate.registrationRules = () => {
     return [
       // firstname is required and must be string
       body("client_firstname")
@@ -52,7 +52,7 @@ validate.registationRules = () => {
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
-        res.render("../views/clients/register", {
+        res.render("../views/clients/registration-view", {
             errors,
             message: null,
             title: "Registration",
