@@ -18,6 +18,7 @@ async function buildRegister(req, res, next) {
         title: "Register",
         nav,
         message: null,
+        errors: null,
     })
 }
 
