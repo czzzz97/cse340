@@ -2,11 +2,15 @@
 <% if (message) { %>
     <p><%= message %></p>
 <% } %>
-<form name="login" action="">
+<form id="loginForm" action="/client/login" method="post">
+
     <label for="client_email">Email/Username</label>
-    <input id="client_email" name="client_email" type="email">
+    <input id="client_email" name="client_email" type="email" required>
     <label for="client_password">Password</label>
-    <input id="client_password" name="client_password" type="password">
+    <div id="password_requirements">
+        <p>Password must have at least 12 characters, 1 uppercase, 1 number, and 1 special character.</p>
+    </div>
+    <input id="client_password" name="client_password" type="password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
     <input type="submit" value="Log in">
 </form>
 
