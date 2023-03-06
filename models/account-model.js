@@ -30,4 +30,15 @@ async function checkExistingEmail(client_email){
     }
   }
 
-module.exports = { registerClient, checkExistingEmail }
+  async function getClientByEmail (client_email) {
+    try {
+      const result = await pool.query(
+        'SELECT client_firstname, client_lastname, client_email, client_type, client_password FROM client WHERE client_email = $1',
+        [client_email])
+      return result.rows[0]
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+module.exports = { getClientByEmail, registerClient, checkExistingEmail }

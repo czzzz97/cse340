@@ -6,9 +6,9 @@ const accountController = require("../controllers/accountController");
 router.get("/login", accountController.buildLogin);
 router.post(
   "/login",
-  (req, res) => {
-    res.status(200).send('login process')
-  }
+  regValidate.loginRules(),
+  regValidate.checkLoginData,
+  accountController.loginClient
 )
 
 router.get("/register", accountController.buildRegister);
