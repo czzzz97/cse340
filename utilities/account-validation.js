@@ -66,4 +66,52 @@ validate.registrationRules = () => {
     next()
   }
 
+  validate.loginRules = () => {
+    return [
+      // valid email is required and cannot already exist in the DB
+      body("client_email")
+      .trim()
+      .isEmail()
+      .normalizeEmail() // refer to validator.js docs
+      .withMessage("A valid email is required.")
+      .custom(async (client_email) => {
+        const emailExists = await accountModel.checkExistingEmail(client_email)
+        if (!emailExists){
+          throw new Error("Please register before logging in.")
+        }
+      }),
+
+      // password is required and must be strong password
+      body("client_password")
+        .trim()
+        .isStrongPassword({
+          minLength: 12,
+          minLowercase: 1,
+          minUppercase: 1,
+          minNumbers: 1,
+          minSymbols: 1,
+        })
+        .withMessage("Password incorrect."),
+    ]
+  }
+
+  validate.checkLoginData = async (req, res, next) => {
+    const { client_email } = req.body
+    let errors = []
+    errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav()
+        res.render("../views/clients/login-view", {
+            errors,
+            message: null,
+            title: "Login",
+            nav,
+            client_email,
+        })
+        return
+    }
+    next()
+  }
+
+
   module.exports = validate;

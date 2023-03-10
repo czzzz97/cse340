@@ -12,6 +12,7 @@ const app = express()
 const baseController = require("./controllers/baseController")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
+const utilities = require("./utilities/")
 
 /*****
  *  Middleware
@@ -19,6 +20,7 @@ const cookieParser = require("cookie-parser")
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 /********
  *  View Engine and Templates
@@ -34,6 +36,8 @@ app.use(require("./routes/static"))
 app.get("/", baseController.buildHome)
 app.use("/inv", require("./routes/inventory-route"))
 app.use("/client", require("./routes/account-route"))
+//app.use("/account", require("./routes/account-route"))
+
 
 /* ***********************
  * Local Server Information

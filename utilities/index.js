@@ -1,4 +1,6 @@
 const invModel = require("../models/inventory-model")
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 const Util = {}
 
 Util.buildNav = function (data) {
@@ -41,5 +43,32 @@ Util.getDetails = function (data) {
     details = Util.buildDetails(data)
     return details
 }
+
+Util.checkJWTToken = (req, res, next) => {
+  if (req.cookies.jwt) {
+    jwt.verify(
+      req.cookies.jwt,
+      process.env.ACCESS_TOKEN_SECRET,
+      function (err, clientData) {
+        if (err) {
+          res.clearCookie("jwt")
+          return res.redirect("/account/login")
+        }
+      res.locals.clientData = clientData
+      res.locals.loggedin = 1
+      next()
+      })
+  } else {
+    next()
+  }
+}
+
+/*Util.checkLogin = (req, res, next) => {
+  if (res.locals.loggedin) {
+    next()
+  } else {
+    return res.redirect("/account/login")
+  }
+ }*/
 
 module.exports = Util
