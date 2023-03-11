@@ -34,7 +34,7 @@ async function registerClient(req, res) {
         // pass regular password and cost (salt is generated automatically)
         hashedPassword = await bcrypt.hashSync(client_password, 10)
       } catch (error) {
-        res.status(500).render("clients/register", {
+        res.status(500).render("./clients/registration-view", {
           title: "Registration",
           nav,
           message: 'Sorry, there was an error processing the registration.',
@@ -76,7 +76,7 @@ async function registerClient(req, res) {
     const clientData = await accountModel.getClientByEmail(client_email)
     if (!clientData) {
       const message = "Please check your credentials and try again."
-      res.status(400).render("clients/login", {
+      res.status(400).render("./clients/login-view", {
         title: "Login",
         nav,
         message,
@@ -106,7 +106,7 @@ async function accountLogin(req, res) {
   const clientData = await accountModel.getClientByEmail(client_email)
   if (!clientData) {
     const message = "Please check your credentials and try again."
-    res.status(400).render("account/login", {
+    res.status(400).render("./clients/login-view", {
       title: "Login",
       nav,
       message,
@@ -129,7 +129,7 @@ async function accountLogin(req, res) {
 
 async function buildAccount(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("/account/", {
+  res.render("./clients/account-view", {
       title: "Account",
       nav,
       message: null,

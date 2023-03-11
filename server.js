@@ -36,7 +36,7 @@ app.use(require("./routes/static"))
 app.get("/", baseController.buildHome)
 app.use("/inv", require("./routes/inventory-route"))
 app.use("/client", require("./routes/account-route"))
-//app.use("/account", require("./routes/account-route"))
+app.use("/account", require("./routes/account-route"))
 
 
 /* ***********************

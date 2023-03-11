@@ -23,6 +23,6 @@ router.post(
 //router.get("/", utilities.checkJWTToken, accountController.buildManagement)
 router.get("/", utilities.checkJWTToken, accountController.accountLogin)
 
-router.get("/account", accountController.buildAccount);
+//router.get("/account", accountController.buildAccount);
 
 module.exports = router;

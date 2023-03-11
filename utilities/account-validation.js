@@ -80,7 +80,6 @@ validate.registrationRules = () => {
           throw new Error("Please register before logging in.")
         }
       }),
-
       // password is required and must be strong password
       body("client_password")
         .trim()
